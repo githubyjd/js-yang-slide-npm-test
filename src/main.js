@@ -6,6 +6,9 @@ import router from './router'
 
 import './assets/main.css'
 
+import slide from "js-yang-slide"
+Vue.use(slide);
+
 Vue.use(PiniaVuePlugin)
 
 new Vue({

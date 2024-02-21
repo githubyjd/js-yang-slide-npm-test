@@ -1,14 +1,25 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import {onMounted} from "vue";
+
+
+const handleSlide = (event) => {
+  console.log("event slide event:", event.detail, event.detail.direction);
+}
+
+onMounted(() => {
+  document.addEventListener("slide", handleSlide)
+})
+
 </script>
 
 <template>
   <div id="app">
     <header>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
 
       <div class="wrapper">
-        <HelloWorld msg="You did it!" />
+        <HelloWorld msg="You did it!"/>
 
         <nav>
           <router-link to="/">Home</router-link>
@@ -17,7 +28,7 @@ import HelloWorld from './components/HelloWorld.vue'
       </div>
     </header>
 
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
