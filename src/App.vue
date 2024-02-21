@@ -1,10 +1,14 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
+
+const direction = ref("")
+
 
 
 const handleSlide = (event) => {
   console.log("event slide event:", event.detail, event.detail.direction);
+  direction.value = event.detail.direction
 }
 
 onMounted(() => {
@@ -15,6 +19,9 @@ onMounted(() => {
 
 <template>
   <div id="app">
+
+    <div class="direction">{{ direction }}</div>
+
     <header>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
 
@@ -33,6 +40,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+
+.direction{
+  position: fixed;
+  top: 1px;
+  left: 1px;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
